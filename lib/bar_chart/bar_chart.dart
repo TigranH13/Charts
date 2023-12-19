@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:charts/bar_chart/bar_chart_data.dart';
 import 'package:charts/bar_chart/bar_chart_painter.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +58,7 @@ class _BarChartState extends State<BarChart> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    log('bar init');
     super.initState();
     // Initialize animation controller and animation.
     _controller = AnimationController(
@@ -70,6 +73,21 @@ class _BarChartState extends State<BarChart> with TickerProviderStateMixin {
     );
 
     _controller.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    log('bar dp');
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant BarChart oldWidget) {
+    log('bar update');
+
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
