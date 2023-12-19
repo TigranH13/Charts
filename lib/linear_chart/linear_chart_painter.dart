@@ -134,7 +134,7 @@ class LinearChartPainter extends CustomPainter {
     TextPainter titlePainter = TextPainter(
       text: TextSpan(
         text: title,
-        style: const TextStyle(fontSize: 12, color: Colors.black),
+        style: textStyle,
       ),
       textDirection: TextDirection.ltr,
     )..layout();

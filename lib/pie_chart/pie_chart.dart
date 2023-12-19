@@ -17,7 +17,10 @@ class PieChart extends StatefulWidget {
   });
 
   @override
-  PieChartState createState() => PieChartState();
+  PieChartState createState() {
+    print('cr');
+    return PieChartState();
+  }
 }
 
 class PieChartState extends State<PieChart>
@@ -27,6 +30,7 @@ class PieChartState extends State<PieChart>
 
   @override
   void initState() {
+    print('init');
     super.initState();
     _controller = AnimationController(
       duration: widget.animationDuratin,
@@ -40,12 +44,36 @@ class PieChartState extends State<PieChart>
   }
 
   @override
+  void didUpdateWidget(covariant PieChart oldWidget) {
+    print(oldWidget.data.length);
+    print(widget.data.length);
+    if (oldWidget.data.hashCode != widget.data.hashCode) {
+      print('haa');
+      _controller.reset();
+      _controller.forward();
+    }
+    print('update widget');
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void didChangeDependencies() {
+    print('update dep');
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: PieChartPainter(
-        data: widget.data,
-        animation: _controller,
-        textStyle: widget.textStyle,
+    print('build');
+    return SizedBox.expand(
+      child: CustomPaint(
+        painter: PieChartPainter(
+          data: widget.data,
+          animation: _controller,
+          textStyle: widget.textStyle,
+        ),
       ),
     );
   }

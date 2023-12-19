@@ -17,7 +17,7 @@ class LinearChart extends StatefulWidget {
     this.animationCurve = Curves.easeIn,
     this.animationDuration = const Duration(milliseconds: 1000),
     this.minValue,
-    this.displayedValueSpace = 10,
+    this.displayedValueSpace = 1,
     required this.data,
     this.lineColor = Colors.grey,
     this.pointRadius = 3,

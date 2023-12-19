@@ -22,7 +22,7 @@ class PieChartPainter extends CustomPainter {
 
     for (var item in data) {
       final paint = Paint()
-        ..color = item.color ?? getRandomColor()
+        ..color = item.color
         ..style = PaintingStyle.fill;
 
       double sweepRadian = (item.value / total) * 2 * pi * animation.value;
@@ -45,10 +45,5 @@ class PieChartPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
-  }
-
-  Color getRandomColor() {
-    return Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0)
-        .withOpacity(1.0);
   }
 }
