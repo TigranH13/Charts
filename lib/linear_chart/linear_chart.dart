@@ -3,8 +3,8 @@ import 'package:charts/linear_chart/linear_chart_painter.dart';
 import 'package:flutter/material.dart';
 
 class LinearChart extends StatefulWidget {
-  final Duration animationDuratin;
-  final double ponitRadius;
+  final Duration animationDuration;
+  final double pointRadius;
   final TextStyle textStyle;
   final int displayedValueSpace;
   final double spacing;
@@ -15,12 +15,12 @@ class LinearChart extends StatefulWidget {
 
   const LinearChart({
     this.animationCurve = Curves.easeIn,
-    this.animationDuratin = const Duration(milliseconds: 1000),
+    this.animationDuration = const Duration(milliseconds: 1000),
     this.minValue,
     this.displayedValueSpace = 10,
     required this.data,
     this.lineColor = Colors.grey,
-    this.ponitRadius = 3,
+    this.pointRadius = 3,
     this.textStyle = const TextStyle(fontSize: 8, color: Colors.black),
     this.spacing = 8,
     super.key,
@@ -41,7 +41,7 @@ class _LinearChartState extends State<LinearChart>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: widget.animationDuratin, // Set your desired animation duration
+      duration: widget.animationDuration, // Set your desired animation duration
     );
 
     final animation =
@@ -63,7 +63,7 @@ class _LinearChartState extends State<LinearChart>
         lineColor: widget.lineColor,
         minValue: widget.minValue,
         spacing: widget.spacing,
-        pointRadius: widget.ponitRadius,
+        pointRadius: widget.pointRadius,
       ),
     );
   }
